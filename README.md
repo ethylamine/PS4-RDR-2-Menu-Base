@@ -14,3 +14,5 @@ Currently not compatible with GoldHEN's bin loader.
 Just as customizable as 2much4u's GTA V Menu Base.
 
 Special thanks to 2much4u, 0x199, AlAzif, and ChendoChap for their assistance.
+
+![pic](https://github.com/ethylamine/PS4-RDR-2-Menu-Base/blob/main/Red%20Dead%20Redemption%202.jpg)
