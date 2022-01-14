@@ -9,10 +9,12 @@ Inline void* sys_mmap(void *addr, size_t len, int prot, int flags, int fd, off_t
 BOOL nativeHook() {
 	if (gtaVars->allocationNeeded) {
 		if (!gtaVars->executableSpace) {
-			gtaVars->executableSpace = sys_mmap((void*)0x926200000, gtaVars->allocationSize, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
+			//gtaVars->executableSpace = sys_mmap((void*)0x926200000, gtaVars->allocationSize, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
+			gtaVars->executableSpace = sys_mmap(0, gtaVars->allocationSize, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 		}
 		else if (!gtaVars->dataSpace) {
-			gtaVars->dataSpace = sys_mmap((void*)0x926300000, gtaVars->allocationSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
+			//gtaVars->dataSpace = sys_mmap((void*)0x926300000, gtaVars->allocationSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
+			gtaVars->dataSpace = sys_mmap(0, gtaVars->allocationSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 		}
 		else {
 			*(char*)gtaVars->executableSpace = 0xC3; // retn
