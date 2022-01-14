@@ -12,7 +12,7 @@ PHDRS
 SECTIONS
 {
 	/* Code segment */
-	. = 0x926200000;
+	/* . = 0x926200000; */
 	.text : {
 		*(.text.start)
 		*(.text*)
@@ -20,7 +20,7 @@ SECTIONS
 	.rodata : { *(.rodata) *(.rodata*) } : code_seg
 
 	/* Data segment */
-	. = 0x926300000;
+	/* . = 0x926300000; */
 	.data : { *(.data) } : data_seg
 	.bss  : { *(.bss) }  : data_seg
 }
