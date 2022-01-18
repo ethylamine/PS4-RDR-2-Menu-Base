@@ -13,9 +13,9 @@ void patch_ptrace()
 		// Disable ptrace check
 		*(uint8_t *)&kernel_ptr[KERN_PTRACE_CHECK] = 0xEB;
 		
-	else if (fw == 672)
+	/*else if (fw == 672)
 		// Disable ptrace check, 6.72
-		*(uint64_t *)&kernel_ptr[KERN_PTRACE_CHECK_672] = 0x909090909090;
+		*(uint64_t *)&kernel_ptr[KERN_PTRACE_CHECK_672] = 0x909090909090;*/
 		
 	else if (fw == 755)
 		// Disable ptrace check, 7.55
