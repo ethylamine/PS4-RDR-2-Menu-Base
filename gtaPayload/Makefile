@@ -5,7 +5,7 @@ ODIR	 :=	build
 SDIR	 :=	source
 IDIRS	 :=	-Iinclude
 LDIRS	 :=	-Llib
-CFLAGS	 :=	$(IDIRS) $(LDIRS) -O3 -s -w -std=gnu++11 -ffunction-sections -fdata-sections -fno-stack-protector -fno-builtin -nostartfiles -nostdlib -masm=intel -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie -fpermissive
+CFLAGS	 :=	$(IDIRS) $(LDIRS) -O3 -s -w -std=gnu++11 -ffunction-sections -fdata-sections -fno-builtin -nostartfiles -nostdlib -masm=intel -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie -fpermissive
 LFLAGS	 :=	-Xlinker -T linker.x -Wl,--build-id=none
 SFLAGS	:=	-nostartfiles -nostdlib -masm=intel -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=large
 CFILES	 :=	$(wildcard $(SDIR)/*.cpp)
