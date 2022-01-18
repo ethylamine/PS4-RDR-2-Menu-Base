@@ -7,7 +7,7 @@ ODIR	:=	build
 SDIR	:=	source
 IDIRS	:=	-I$(LIBPS4)/include -I. -Iinclude
 LDIRS	:=	-L$(LIBPS4) -L. -Llib
-CFLAGS	:=	$(IDIRS) -O2 -std=c11 -ffunction-sections -fdata-sections -fno-stack-protector  -fno-builtin -nostartfiles -nostdlib -Wall -masm=intel -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie
+CFLAGS	:=	$(IDIRS) -O2 -std=c11 -ffunction-sections -fdata-sections -fno-builtin -nostartfiles -nostdlib -Wall -masm=intel -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie
 SFLAGS	:=	-nostartfiles -nostdlib -march=btver2 -mtune=btver2  -m64 -mabi=sysv -mcmodel=large
 LFLAGS	:=	$(LDIRS) -Xlinker -T $(LIBPS4)/linker.x -Wl,--build-id=none
 CFILES	:=	$(wildcard $(SDIR)/*.c)
