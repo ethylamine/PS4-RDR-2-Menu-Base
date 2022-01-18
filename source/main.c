@@ -109,11 +109,12 @@ int _main(void) {
 	initLibc();
 
 	jailbreak();
-	disable_aslr();
 	initSysUtil();
 	
 	fw = get_firmware();
 	kernel_base = get_kernel_base();
+	if (fw != 672)
+		disable_aslr();
 
 	if (fw != 505 && fw != 755 && fw != 900) // shitty check for firmware
 		return 0;
