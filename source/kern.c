@@ -13,9 +13,27 @@ void patch_ptrace()
 		// Disable ptrace check
 		*(uint8_t *)&kernel_ptr[KERN_PTRACE_CHECK] = 0xEB;
 		
-	/*else if (fw == 672)
+	else if (fw == 672) // these patches are needed for 6.72 to work
+	{
+		// patch dynlib_dlsym
+		*(uint8_t *)&kernel_ptr[0x1D895A] = 0xE9;
+		*(uint8_t *)&kernel_ptr[0x1D895A + 1] = 0xC7;
+		*(uint8_t *)&kernel_ptr[0x1D895A + 2] = 0x01;
+		*(uint8_t *)&kernel_ptr[0x1D895A + 3] = 0x00;
+		*(uint8_t *)&kernel_ptr[0x1D895A + 4] = 0x00;
+		
 		// Disable ptrace check, 6.72
-		*(uint64_t *)&kernel_ptr[KERN_PTRACE_CHECK_672] = 0x909090909090;*/
+		*(uint8_t *)&kernel_ptr[KERN_PTRACE_CHECK_672] = 0xEB;
+		*(uint8_t *)&kernel_ptr[0x10FD22] = 0xE9;
+		*(uint8_t *)&kernel_ptr[0x10FD22 + 1] = 0xE2;
+		*(uint8_t *)&kernel_ptr[0x10FD22 + 2] = 0x02;
+		*(uint8_t *)&kernel_ptr[0x10FD22 + 3] = 0x00;
+		*(uint8_t *)&kernel_ptr[0x10FD22 + 4] = 0x00;
+		
+		// disable ASLR
+		*(uint8_t *)&kernel_ptr[KERN_DISABLE_ASLR_672] = 0xEB;
+	}
+		
 		
 	else if (fw == 755)
 		// Disable ptrace check, 7.55
