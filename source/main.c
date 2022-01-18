@@ -116,7 +116,7 @@ int _main(void) {
 	if (fw != 672)
 		disable_aslr();
 
-	if (fw != 505 && fw != 755 && fw != 900) // shitty check for firmware
+	if (fw != 505 && fw != 672 && fw != 755 && fw != 900) // shitty check for firmware
 		return 0;
 
 	syscall(11, patch_ptrace);
